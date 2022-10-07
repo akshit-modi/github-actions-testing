@@ -5,16 +5,20 @@ on:
 jobs:
   admin:
     runs-on: ubuntu-latest
-    run: echo "admin"
+    steps:
+    - run: echo "admin"
   
   app:
     runs-on: ubuntu-latest
-    run: echo "app"
+    steps:
+    - run: echo "app"
     
   buy:
     runs-on: ubuntu-latest
-    run: echo "buy"
+    steps:
+    - run: echo "buy"
     
   speed:
     runs-on: ubuntu-latest
-    run: echo "speed"
+    steps:
+    - run: echo "speed"
