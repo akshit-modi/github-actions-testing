@@ -1,0 +1,20 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  admin:
+    runs-on: ubuntu-latest
+    run: echo "admin"
+  
+  app:
+    runs-on: ubuntu-latest
+    run: echo "app"
+    
+  buy:
+    runs-on: ubuntu-latest
+    run: echo "buy"
+    
+  speed:
+    runs-on: ubuntu-latest
+    run: echo "speed"
