@@ -22,3 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "speed"
+    
+  all:
+    runs-on: ubuntu-latest
+    needs: [admin, app, buy, speed]
