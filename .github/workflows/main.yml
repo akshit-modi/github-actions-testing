@@ -26,3 +26,5 @@ jobs:
   all:
     runs-on: ubuntu-latest
     needs: [admin, app, buy, speed]
+    steps:
+    - run: echo "All job succeeded"
