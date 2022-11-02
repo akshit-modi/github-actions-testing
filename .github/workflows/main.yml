@@ -11,8 +11,7 @@ jobs:
   admin:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    environment: 
-      name: admin
+    environment: admin
     steps:
     - run: echo "admin"
   
