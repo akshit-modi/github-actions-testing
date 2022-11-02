@@ -25,12 +25,14 @@ jobs:
   buy:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment: Prod
     steps:
     - run: echo "buy"
     
   speed:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment: Prod
     steps:
     - run: echo "speed"
     
