@@ -10,26 +10,31 @@ on:
 jobs:
   admin:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
     - run: echo "admin"
   
   app:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
     - run: echo "app"
     
   buy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
     - run: echo "buy"
     
   speed:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
     - run: echo "speed"
     
   all:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     needs: [admin, app, buy, speed]
     steps:
     - run: echo "Looks good"
