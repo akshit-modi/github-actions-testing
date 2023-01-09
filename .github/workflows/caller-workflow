@@ -9,3 +9,5 @@ permissions:
 jobs:
   caller: 
     uses: ./.github/workflows/reusable-workflow.yml@main
+    with:
+      var: "variable"
