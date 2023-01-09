@@ -7,7 +7,21 @@ permissions:
   contents: read
 
 jobs:
+  pre-caller:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pre
+        id: pre-calling
+        run: echo "pre caller workflow"
+    
   caller: 
     uses: ./.github/workflows/reusable-workflow.yml
+    needs: pre-caller
     with:
       var: "variable"
+  post-caller:
+    runs-on: ubuntu-latest
+    steps:
+      - name: post
+        id: without-needs
+        run: echo "parallel workflow"
