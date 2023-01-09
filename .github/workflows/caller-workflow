@@ -1,8 +1,5 @@
 name: caller workflow
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
