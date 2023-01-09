@@ -1,0 +1,28 @@
+name: Reusable workflow example 
+on:
+  workflow_call:
+  
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      output1: 10
+      output2: "output-2 local"
+    steps:
+    - name: checkout
+      id: checkout
+      run: echo "checkout"
+      
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: build
+    steps:
+    - name: pre-deploy
+      id: pre-deploy
+      run: | 
+        echo "pre-deploy"
+        echo ${{ needs.build.outputs.output2 }}
+  
