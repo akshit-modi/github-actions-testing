@@ -12,11 +12,14 @@ jobs:
     steps:
       - name: build app
         id: build
+        run: echo "build"
       
       - name: deploy app
         id: deploy
         if: steps.build.outcome == 'success'
+        run: echo "deploy"
       
       - name: automate qa 
         id: qa
         if: steps.deploy.outcome == 'success'
+        run: echo "qa"
