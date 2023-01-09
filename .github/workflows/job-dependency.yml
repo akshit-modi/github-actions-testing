@@ -40,13 +40,13 @@ jobs:
       id: pre-deploy
       run: | 
         echo "pre-deploy"
-        echo ${{ build.outputs.output2 }}
+        echo ${{ jobs.build.outputs.output2 }}
     - name: deploy
       id: deploy
-      if: build.outputs.output1 == 10
+      if: jobs.build.outputs.output1 == 10
       run: echo "value 10 it worked"
       
     - name: post-deploy
       id: post-deploy
-      if: build.outputs.output1 != 10
+      if: jobs.build.outputs.output1 != 10
       run: echo "value is not 10 it not worked"
