@@ -1,0 +1,42 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - .github/**
+  workflow_dispatch:
+    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      output1: "output-1 local"
+      output2: "output-2 local"
+    steps:
+    - name: checkout
+      id: checkout
+      run: echo "checkout"
+      
+    - name: build image
+      id: build-image
+      run: echo "image build"
+      
+    - name: push image
+      id: push-image
+      run: echo "image pushed"
+      
+    - name: build
+      id: build
+      run: echo "build"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: build
+    steps:
+    - name: deploy
+      id: deploy
+      run: echo ${{ needs.build.outputs }}
