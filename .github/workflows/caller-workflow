@@ -8,4 +8,4 @@ permissions:
 
 jobs:
   caller: 
-    uses: akshit-modi/github-actions-testing/.github/workflows/reusable-workflow.yml@main
+    uses: ./.github/workflows/reusable-workflow.yml@main
