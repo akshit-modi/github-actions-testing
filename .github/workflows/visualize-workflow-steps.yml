@@ -1,0 +1,22 @@
+name: caller workflow
+on:
+  workflow_dispatch:
+  
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  visualize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build app
+        id: build
+      
+      - name: deploy app
+        id: deploy
+        if: steps.build.outcome == 'success'
+      
+      - name: automate qa 
+        id: qa
+        if: steps.deploy.outcome == 'success'
