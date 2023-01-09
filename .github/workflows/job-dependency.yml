@@ -1,4 +1,4 @@
-name: CI
+name: test
 on:
   push:
     branches:
@@ -39,4 +39,4 @@ jobs:
     steps:
     - name: deploy
       id: deploy
-      run: echo ${{ needs.build.outputs }}
+      run: echo ${{ needs.build.outputs.output1 }}
