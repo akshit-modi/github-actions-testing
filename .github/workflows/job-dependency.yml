@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     outputs:
-      output1: "output-1 local"
+      output1: 10
       output2: "output-2 local"
     steps:
     - name: checkout
@@ -37,6 +37,17 @@ jobs:
     timeout-minutes: 30
     needs: build
     steps:
+    - name: pre-deploy
+      id: pre-deploy
+      run: | 
+        echo "pre-deploy"
+        echo ${{ needs.build.outputs.output2 }}
     - name: deploy
       id: deploy
-      run: echo ${{ needs.build.outputs.output1 }}
+      if: needs.build.outputs.output1 == 10
+      run: echo "value 10 it worked"
+      
+    - name: post-deploy
+      id: post-deploy
+      if: needs.build.outputs.output1 != 10
+      run: echo "value is not 10 it not worked"
