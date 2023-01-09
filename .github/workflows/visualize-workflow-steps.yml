@@ -21,5 +21,5 @@ jobs:
       
       - name: automate qa 
         id: qa
-        if: steps.deploy.outcome == 'success'
+        if: steps.deploy.outcome != 'success'
         run: echo "qa"
