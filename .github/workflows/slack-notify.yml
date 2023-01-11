@@ -23,5 +23,5 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}     
         with: 
           status: ${{ job.status }}
-          channel: "alert-build-prod"
+          channel: "alert-build"
         if: always()
