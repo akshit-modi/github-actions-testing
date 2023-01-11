@@ -1,0 +1,27 @@
+name: demo service
+on:
+  workflow_dispatch:
+  
+  
+jobs:
+  build: 
+    name: "build"
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 5
+    steps:
+      - name: "Checkout Code"
+        id: checkout
+        uses: "actions/checkout@v2"
+        
+      - name: "list folder"
+        id: list
+        run: ls
+        
+      - name: Slack notify
+        uses: act10ns/slack@v1
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}     
+        with: 
+          status: ${{ job.status }}
+          channel: "alerts-builds-prod"
+        if: always()
